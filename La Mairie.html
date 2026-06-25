@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Conseil Municipal – Chaudon 28210</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bleu:       #1a2744;
+  --bleu-med:   #2a4b9e;
+  --or:         #c9a84c;
+  --or-clair:   #e8cc72;
+  --pierre:     #f5f0e8;
+  --creme:      #fdf9f0;
+  --gris:       #5a5a6a;
+  --texte:      #1c1c2e;
+  --blanc:      #ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.6;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+
+/* ── HEADER ── */
+.site-header{background:var(--bleu);color:#fff;position:relative;overflow:hidden;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;font-size:0.88rem;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+
+/* ── NAV ── */
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:var(--or-clair);background:rgba(255,255,255,0.06);text-decoration:none;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+
+/* ── BANDEAU DATE ── */
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;letter-spacing:0.03em;}
+
+/* ── FIL D'ARIANE ── */
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+/* ── PAGE BODY ── */
+.page-body{max-width:1100px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
+
+/* ── TITRE DE PAGE ── */
+.page-header{margin-bottom:2rem;border-bottom:1px solid rgba(201,168,76,0.35);padding-bottom:1rem;}
+.page-header .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--bleu);line-height:1.2;}
+.page-header .sous-titre{font-size:0.9rem;color:var(--gris);margin-top:0.3rem;}
+
+/* ── CONTACT MAIRIE ── */
+.contact-band{display:flex;flex-wrap:wrap;gap:1.2rem;background:#fff;border:1px solid #ddd8cc;border-radius:3px;padding:1.1rem 1.4rem;margin-bottom:2.5rem;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.contact-item{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.9rem;color:var(--texte);}
+.contact-item .icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;}
+.contact-item strong{display:block;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--or);margin-bottom:0.1rem;}
+
+/* ── SECTION TITRE ── */
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.4rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--bleu);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:0.35rem;margin-bottom:1.4rem;}
+
+/* ── CARTE MAIRE ── */
+.maire-card{display:flex;align-items:center;gap:2rem;background:#fff;border:1px solid #ddd8cc;border-top:3px solid var(--or);border-radius:3px;padding:1.5rem 2rem;margin-bottom:2.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+.maire-photo{width:160px;height:160px;object-fit:cover;border-radius:2px;flex-shrink:0;box-shadow:0 3px 12px rgba(0,0,0,0.15);}
+.maire-photo-fallback{width:160px;height:160px;background:var(--pierre);border:1px solid #ddd8cc;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0;}
+.maire-info .role{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.maire-info h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--bleu);line-height:1.1;margin-bottom:0.4rem;}
+.maire-info .meta{font-size:0.9rem;color:var(--gris);}
+.maire-info .meta span{margin-right:1rem;}
+
+/* ── GRILLE ADJOINTS ── */
+.adjoints-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.5rem;}
+.adjoint-card{background:#fff;border:1px solid #ddd8cc;border-radius:3px;padding:1rem 0.8rem;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,0.06);transition:box-shadow 0.15s,transform 0.12s;}
+.adjoint-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.adjoint-card img{width:100px;height:100px;object-fit:cover;border-radius:50%;border:3px solid var(--or);margin-bottom:0.7rem;}
+.adjoint-card .adj-num{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.2rem;}
+.adjoint-card .adj-nom{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--bleu);line-height:1.2;margin-bottom:0.15rem;}
+.adjoint-card .adj-meta{font-size:0.78rem;color:var(--gris);line-height:1.4;}
+.adjoint-card .adj-delegation{font-size:0.75rem;color:var(--bleu-med);font-style:italic;margin-top:0.3rem;}
+
+/* ── GRILLE CONSEILLERS ── */
+.conseillers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.9rem;margin-bottom:2.5rem;}
+.conseiller-card{background:#fff;border:1px solid #ddd8cc;border-radius:3px;padding:0.9rem 1rem;display:flex;align-items:center;gap:0.9rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.conseiller-card img{width:64px;height:64px;object-fit:cover;border-radius:50%;border:2px solid #ddd8cc;flex-shrink:0;}
+.conseiller-card .c-nom{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--bleu);line-height:1.2;}
+.conseiller-card .c-meta{font-size:0.78rem;color:var(--gris);line-height:1.4;}
+
+/* ── TABLEAU SYNDICATS & COMMISSIONS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
+.liste-table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,0.06);border-radius:3px;overflow:hidden;}
+.liste-table thead tr{background:var(--bleu);}
+.liste-table thead th{padding:0.6rem 1rem;text-align:left;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--or-clair);}
+.liste-table tbody tr{border-bottom:1px solid #e8e2d8;}
+.liste-table tbody tr:last-child{border-bottom:none;}
+.liste-table td{padding:0.55rem 1rem;font-size:0.88rem;color:var(--texte);vertical-align:top;}
+.liste-table td:first-child{font-weight:600;color:var(--bleu);}
+.liste-table td:last-child{color:var(--gris);font-style:italic;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .adjoints-grid{grid-template-columns:repeat(3,1fr);}
+  .two-col{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .header-inner{padding:1rem;}
+  .header-info{display:none;}
+  .nav-inner{padding:0;}
+  .nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}
+  .nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .hamburger{display:block;}
+  .date-band{display:none;}
+  .maire-card{flex-direction:column;text-align:center;padding:1.2rem;}
+  .adjoints-grid{grid-template-columns:repeat(2,1fr);}
+  .conseillers-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/Blason Chaudon-1.jpg" alt="Blason de Chaudon" class="blason"
+         onerror="this.outerHTML='<div class=\'blason-fallback\'>🏛️</div>'">
+    <div class="header-text">
+      <div class="kicker">Mairie de Chaudon · Eure-et-Loir 28210</div>
+      <h1>Commune de <span>Chaudon</span></h1>
+    </div>
+    <div class="header-info">
+      <span id="greeting">Bonjour</span>
+      <strong>Il est <span id="clock">--:--:--</span></strong>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index-2.html">Accueil</a></li>
+      <li>
+        <a href="#">La commune</a>
+        <ul class="dropdown">
+          <li><a href="1011.html">Plan de Chaudon</a></li>
+          <li><a href="Geographie.html">Géographie</a></li>
+          <li class="has-sub">
+            <a href="#">Histoire</a>
+            <ul class="subdrop">
+              <li><a href="Histoire .html">Chaudon Origine</a></li>
+              <li><a href="siecle.html">Histoire d'un siècle</a></li>
+              <li><a href="Maires de Chaudon.html">Les Maires de Chaudon</a></li>
+            </ul>
+          </li>
+          <li><a href="Patrimoine .html">Patrimoine</a></li>
+          <li><a href="cassegrain .html">Laurent Cassegrain</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">La Mairie</a>
+        <ul class="dropdown">
+          <li><a href="La Mairie.html">Le Conseil Municipal</a></li>
+          <li><a href="conseil_municipal.html">Comptes rendus C.M.</a></li>
+          <li class="has-sub">
+            <a href="#">Urbanisme</a>
+            <ul class="subdrop">
+              <li><a href="Urbanisme.html">P.L.U.I</a></li>
+              <li><a href="http://cadastre.gouv.fr/">Cadastre</a></li>
+              <li><a href="Cimetiere.html">Cimetière</a></li>
+            </ul>
+          </li>
+          <li><a href="Administratif.html">Administratif</a></li>
+          <li><a href="Tarifs.html">Tarifs</a></li>
+          <li><a href="Travaux.html">Travaux</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Syndicats</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/pages/service-collecte-et-valorisation-des-dechets-menagers-223.html">Ordures ménagères</a></li>
+          <li><a href="http://www.sitreva.fr/">Déchetterie</a></li>
+          <li><a href="Ecole.html">Regroupement pédagogique</a></li>
+          <li><a href="http://www.synd-eaux-villemeux.fr/accueil/historique/">Eaux de Ruffin</a></li>
+          <li class="has-sub">
+            <a href="https://www.sbv4r.fr/">S.E.B.V</a>
+            <ul class="subdrop">
+              <li><a href="https://www.sbv4r.fr/">S.E.B.V</a></li>
+              <li><a href="GEMAPI.html">GEMAPI</a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.energie28.fr/">Territoire Energie 28</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Nos Enfants</a>
+        <ul class="dropdown">
+          <li><a href="Ecole.html">Écoles</a></li>
+          <li><a href="Periscolaire.html">Périscolaire</a></li>
+          <li><a href="Assistantes Maternelles.html">Assistantes Maternelles</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://www.porteseureliennesidf.fr/">Com. de Communes</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/">PEIDF</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Publications</a>
+        <ul class="dropdown">
+          <li><a href="Petit_Chaudonnais.html">Petit Chaudonnais</a></li>
+          <li><a href="Bulletins municipaux.html">Bulletin municipal</a></li>
+          <li><a href="Manifestation.html">Manifestations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ BANDEAU DATE ══ -->
+<div class="date-band">
+  <span id="greeting2">Bienvenue</span>
+</div>
+
+<!-- ══ FIL D'ARIANE ══ -->
+<div class="breadcrumb">
+  <a href="index-2.html">Accueil</a><span>›</span>La Mairie<span>›</span>Le Conseil Municipal
+</div>
+
+<!-- ══ CORPS ══ -->
+<div class="page-body">
+
+  <div class="page-header">
+    <div class="section-label">La Mairie</div>
+    <h2>Le Conseil Municipal</h2>
+    <p class="sous-titre">Conseil municipal installé le 27 mars 2026 · 1 715 habitants (population légale 2022)</p>
+  </div>
+
+  <!-- Contact mairie -->
+  <div class="contact-band">
+    <div class="contact-item">
+      <span class="icon">📍</span>
+      <div><strong>Adresse</strong>5, Grande Rue · 28210 Chaudon</div>
+    </div>
+    <div class="contact-item">
+      <span class="icon">📞</span>
+      <div><strong>Téléphone</strong>02 37 82 30 51</div>
+    </div>
+    <div class="contact-item">
+      <span class="icon">✉️</span>
+      <div><strong>Email</strong><a href="mailto:mairiechaudon@wanadoo.fr">mairiechaudon@wanadoo.fr</a></div>
+    </div>
+    <div class="contact-item">
+      <span class="icon">🕐</span>
+      <div><strong>Horaires</strong>Lun, mar, jeu : 10h–12h et 16h30–19h · Mer : 10h–12h · Fermée ven et sam</div>
+    </div>
+  </div>
+
+  <!-- Le Maire -->
+  <div class="section-label">Exécutif</div>
+  <div class="section-title">Le Maire</div>
+
+  <div class="maire-card">
+    <img src="Les conseillers municipaux 2026-1/Antoine Jeandey-1.jpg" alt="Antoine Jeandey, Maire de Chaudon" class="maire-photo"
+         onerror="this.outerHTML='<div class=\'maire-photo-fallback\'>👤</div>'">
+    <div class="maire-info">
+      <div class="role">Maire de Chaudon</div>
+      <h3>Antoine JEANDEY</h3>
+      <div class="meta">
+        <span>60 ans</span>
+        <span>Journaliste · Auteur</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Les Adjoints -->
+  <div class="section-label">Exécutif</div>
+  <div class="section-title">Les Adjoints au Maire</div>
+
+  <div class="adjoints-grid">
+    <div class="adjoint-card">
+      <img src="Les conseillers municipaux 2026-1/Régine Besnard-1.jpg" alt="Régine Besnard"
+           onerror="this.style.background='var(--pierre)';this.alt='👤'">
+      <div class="adj-num">1ʳᵉ Adjointe</div>
+      <div class="adj-nom">Régine BESNARD</div>
+      <div class="adj-meta">69 ans · Professeure de Karaté</div>
+      <div class="adj-delegation">Délégation à préciser</div>
+    </div>
+    <div class="adjoint-card">
+      <img src="Les conseillers municipaux 2026-1/Arnaud Croquesel-1.jpg" alt="Arnaud Croquesel"
+           onerror="this.style.background='var(--pierre)';this.alt='👤'">
+      <div class="adj-num">2ᵉ Adjoint</div>
+      <div class="adj-nom">Arnaud CROQUESEL</div>
+      <div class="adj-meta">41 ans · Informaticien</div>
+      <div class="adj-delegation">Jeunesse &amp; Sports</div>
+    </div>
+    <div class="adjoint-card">
+      <img src="Les conseillers municipaux 2026-1/Alexandra Guinedot-1.jpg" alt="Alexandra Guinedot"
+           onerror="this.style.background='var(--pierre)';this.alt='👤'">
+      <div class="adj-num">3ᵉ Adjointe</div>
+      <div class="adj-nom">Alexandra GUINEDOT</div>
+      <div class="adj-meta">44 ans · Éleveuse, Chevrerie</div>
+      <div class="adj-delegation">Délégation à préciser</div>
+    </div>
+    <div class="adjoint-card">
+      <img src="Les conseillers municipaux 2026-1/Francois Xavier Borel-1.jpg" alt="François-Xavier Borel"
+           onerror="this.style.background='var(--pierre)';this.alt='👤'">
+      <div class="adj-num">4ᵉ Adjoint</div>
+      <div class="adj-nom">François-Xavier BOREL</div>
+      <div class="adj-meta">46 ans · Cadre, industrie automobile</div>
+      <div class="adj-delegation">Patrimoine</div>
+    </div>
+    <div class="adjoint-card">
+      <img src="Les conseillers municipaux 2026-1/Gaelle Thiebaut Noble-1t.jpg" alt="Gaëlle Thiébaut Noblet"
+           onerror="this.style.background='var(--pierre)';this.alt='👤'">
+      <div class="adj-num">5ᵉ Adjointe</div>
+      <div class="adj-nom">Gaëlle THIÉBAUT NOBLET</div>
+      <div class="adj-meta">40 ans · Psychologue Clinicienne</div>
+      <div class="adj-delegation">Délégation à préciser</div>
+    </div>
+  </div>
+
+  <!-- Les Conseillers -->
+  <div class="section-label">Municipalité</div>
+  <div class="section-title">Les Conseillers Municipaux</div>
+
+  <div class="conseillers-grid">
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Ludovic Taugourdeau-1.jpg" alt="Ludovic Taugourdeau" onerror="this.style.display='none'">
+      <div><div class="c-nom">Ludovic TAUGOURDEAU</div><div class="c-meta">47 ans · Cavalier, éleveur de chevaux de courses</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Mélanie Boisseau-1.jpg" alt="Mélanie Boisseau" onerror="this.style.display='none'">
+      <div><div class="c-nom">Mélanie BOISSEAU</div><div class="c-meta">41 ans · Codeuse LFPC</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Cécile Gambie-1r.jpg" alt="Cécile Gambier" onerror="this.style.display='none'">
+      <div><div class="c-nom">Cécile GAMBIER</div><div class="c-meta">38 ans · Professeure des écoles</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Christophe Legray-1.jpg" alt="Christophe Legeay" onerror="this.style.display='none'">
+      <div><div class="c-nom">Christophe LEGEAY</div><div class="c-meta">44 ans · Chef d'entreprise, vente automobile</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Artur Fernandes-1.jpg" alt="Artur Fernandes" onerror="this.style.display='none'">
+      <div><div class="c-nom">Artur FERNANDES</div><div class="c-meta">52 ans · Chef de chantier T.P</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Annick Berland-1.jpg" alt="Annick Berland" onerror="this.style.display='none'">
+      <div><div class="c-nom">Annick BERLAND</div><div class="c-meta">77 ans · Retraitée</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Lydia Baron-1.jpg" alt="Lydia Baron" onerror="this.style.display='none'">
+      <div><div class="c-nom">Lydia BARON</div><div class="c-meta">48 ans · Co-gérante, entreprise de bâtiment</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Romain Ferrand-1.jpg" alt="Romain Ferrand" onerror="this.style.display='none'">
+      <div><div class="c-nom">Romain FERRAND</div><div class="c-meta">34 ans · Technicien en maintenance industrielle</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Yannick Mafille-1.jpg" alt="Yannick Mafille" onerror="this.style.display='none'">
+      <div><div class="c-nom">Yannick MAFILLE</div><div class="c-meta">52 ans · Technicien chez Renault</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Thiérry Rideau-1.jpg" alt="Thierry Rideau" onerror="this.style.display='none'">
+      <div><div class="c-nom">Thierry RIDEAU</div><div class="c-meta">71 ans · Retraité de la Poste</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Alexia Fauveau-1.jpg" alt="Alexia Fauveau" onerror="this.style.display='none'">
+      <div><div class="c-nom">Alexia FAUVEAU</div><div class="c-meta">38 ans · Responsable ressources humaines</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Marie-Agnès Leleu-1.jpg" alt="Marie-Agnès Leleu" onerror="this.style.display='none'">
+      <div><div class="c-nom">Marie-Agnès LELEU</div><div class="c-meta">54 ans · Bijouterie et création de bijoux</div></div>
+    </div>
+    <div class="conseiller-card">
+      <img src="Les conseillers municipaux 2026-1/Daniel Boiry-1.jpg" alt="Daniel Boiry" onerror="this.style.display='none'">
+      <div><div class="c-nom">Daniel BOIRY</div><div class="c-meta">69 ans · Enseignant en sciences de l'ingénieur, retraité</div></div>
+    </div>
+  </div>
+
+  <!-- Syndicats & Commissions -->
+  <div class="two-col">
+
+    <div>
+      <div class="section-label">Représentation</div>
+      <div class="section-title">Délégués aux syndicats intercommunaux</div>
+      <table class="liste-table">
+        <thead><tr><th>Syndicat</th><th>Délégué(s)</th></tr></thead>
+        <tbody>
+          <tr><td>CC PEIDF</td><td>À préciser</td></tr>
+          <tr><td>S.E.R — Syndicat des Eaux de Ruffin</td><td>À préciser</td></tr>
+          <tr><td>S.E.B.V — Syndicat Eure Blaise Vesgre</td><td>À préciser</td></tr>
+          <tr><td>Énergie Eure-et-Loir</td><td>À préciser</td></tr>
+          <tr><td>ELi — Eure-et-Loir Ingénierie</td><td>À préciser</td></tr>
+          <tr><td>SIRP — Regroupement pédagogique</td><td>À préciser</td></tr>
+          <tr><td>CCAS</td><td>À préciser</td></tr>
+          <tr><td>Mission Locale</td><td>À préciser</td></tr>
+          <tr><td>Réémetteur de Villemeux</td><td>À préciser</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="section-label">Organisation</div>
+      <div class="section-title">Commissions communales</div>
+      <table class="liste-table">
+        <thead><tr><th>Commission</th><th>Membres</th></tr></thead>
+        <tbody>
+          <tr><td>Finances</td><td>Tout le Conseil Municipal</td></tr>
+          <tr><td>Bâtiments &amp; Urbanisme</td><td>À préciser</td></tr>
+          <tr><td>Voiries, Chemins &amp; Cours d'eau</td><td>À préciser</td></tr>
+          <tr><td>Information, Culture &amp; Patrimoine</td><td>À préciser</td></tr>
+          <tr><td>Impôts</td><td>À préciser</td></tr>
+          <tr><td>Liste électorale</td><td>À préciser</td></tr>
+          <tr><td>Enfance, Jeunesse &amp; École</td><td>À préciser</td></tr>
+          <tr><td>Appel d'offres</td><td>À préciser</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <strong>Mairie de Chaudon</strong> · 28210 Chaudon · Eure-et-Loir
+  <div class="footer-links">
+    <a href="La Mairie.html">Conseil municipal</a>
+    <a href="conseil_municipal.html">Comptes rendus</a>
+    <a href="Administratif.html">Administratif</a>
+    <a href="Urbanisme.html">Urbanisme</a>
+    <a href="Manifestation.html">Manifestations</a>
+    <a href="Bulletins municipaux.html">Bulletin municipal</a>
+  </div>
+</footer>
+
+<script>
+function pad(n){return n<10?'0'+n:n;}
+function tick(){
+  var d=new Date();
+  var h=d.getHours(),m=d.getMinutes(),s=d.getSeconds();
+  var el=document.getElementById('clock');
+  if(el) el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
+  var greet='';
+  if(h>=6&&h<8) greet='Bon réveil';
+  else if(h>=8&&h<12) greet='Bonne matinée';
+  else if(h>=12&&h<13) greet='Bon appétit';
+  else if(h>=13&&h<17) greet='Bon après-midi';
+  else if(h>=17&&h<19) greet='Bonne fin d\'après-midi';
+  else if(h>=19&&h<22) greet='Bonne soirée';
+  else greet='Bonne nuit';
+  var jours=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var dateStr=jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+  var g1=document.getElementById('greeting');
+  if(g1) g1.textContent=greet;
+  var g2=document.getElementById('greeting2');
+  if(g2) g2.textContent='Bienvenue · '+greet+' · Nous sommes le '+dateStr;
+}
+tick(); setInterval(tick,1000);
+
+var ham=document.getElementById('ham');
+var menu=document.getElementById('navMenu');
+if(ham){
+  ham.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded',open);
+  });
+}
+</script>
+</body>
+</html>
