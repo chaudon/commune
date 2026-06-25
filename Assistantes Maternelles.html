@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assistantes Maternelles – Chaudon 28210</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bleu:       #1a2744;
+  --bleu-med:   #2a4b9e;
+  --or:         #c9a84c;
+  --or-clair:   #e8cc72;
+  --pierre:     #f5f0e8;
+  --gris:       #5a5a6a;
+  --texte:      #1c1c2e;
+  --blanc:      #ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.6;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+
+/* ── HEADER ── */
+.site-header{background:var(--bleu);color:#fff;position:relative;overflow:hidden;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;font-size:0.88rem;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+
+/* ── NAV ── */
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:var(--or-clair);background:rgba(255,255,255,0.06);text-decoration:none;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+
+/* ── BANDEAU DATE ── */
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;letter-spacing:0.03em;}
+
+/* ── FIL D'ARIANE ── */
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+/* ── PAGE BODY ── */
+.page-body{max-width:860px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
+.page-header{margin-bottom:2rem;border-bottom:1px solid rgba(201,168,76,0.35);padding-bottom:1rem;}
+.page-header .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--bleu);}
+
+/* ── INTRO BOX ── */
+.intro-box{background:#fff;border-left:4px solid var(--or);border-radius:0 3px 3px 0;padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:1rem;color:var(--texte);line-height:1.75;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.intro-box p{margin-bottom:0.6rem;}
+.intro-box p:last-child{margin-bottom:0;}
+
+/* ── CARTE RAM ── */
+.ram-card{background:#fff;border:1px solid #ddd8cc;border-top:3px solid var(--or);border-radius:3px;padding:2rem;box-shadow:0 2px 10px rgba(0,0,0,0.07);display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.2rem;}
+.ram-card .ram-nom{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--bleu);}
+.ram-card .ram-sous{font-size:0.88rem;color:var(--gris);font-style:italic;margin-top:-0.6rem;}
+.ram-contact{display:flex;flex-direction:column;gap:0.5rem;width:100%;}
+.ram-contact-item{display:flex;align-items:center;justify-content:center;gap:0.6rem;font-size:0.95rem;}
+.ram-contact-item .icon{font-size:1.1rem;}
+.ram-contact-item a{color:var(--bleu-med);font-weight:600;}
+.ram-contact-item a:hover{color:var(--or);}
+
+.logo-comcom{max-width:180px;opacity:0.85;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .header-inner{padding:1rem;}
+  .header-info{display:none;}
+  .nav-inner{padding:0;}
+  .nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}
+  .nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .hamburger{display:block;}
+  .date-band{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/Blason Chaudon-1.jpg" alt="Blason de Chaudon" class="blason"
+         onerror="this.outerHTML='<div class=\'blason-fallback\'>🏛️</div>'">
+    <div class="header-text">
+      <div class="kicker">Mairie de Chaudon · Eure-et-Loir 28210</div>
+      <h1>Commune de <span>Chaudon</span></h1>
+    </div>
+    <div class="header-info">
+      <span id="greeting">Bonjour</span>
+      <strong>Il est <span id="clock">--:--:--</span></strong>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index-2.html">Accueil</a></li>
+      <li>
+        <a href="#">La commune</a>
+        <ul class="dropdown">
+          <li><a href="1011.html">Plan de Chaudon</a></li>
+          <li><a href="Geographie.html">Géographie</a></li>
+          <li class="has-sub">
+            <a href="#">Histoire</a>
+            <ul class="subdrop">
+              <li><a href="Histoire .html">Chaudon Origine</a></li>
+              <li><a href="siecle.html">Histoire d'un siècle</a></li>
+              <li><a href="Maires de Chaudon.html">Les Maires de Chaudon</a></li>
+            </ul>
+          </li>
+          <li><a href="Patrimoine .html">Patrimoine</a></li>
+          <li><a href="cassegrain .html">Laurent Cassegrain</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">La Mairie</a>
+        <ul class="dropdown">
+          <li><a href="La Mairie.html">Le Conseil Municipal</a></li>
+          <li><a href="conseil_municipal.html">Comptes rendus C.M.</a></li>
+          <li class="has-sub">
+            <a href="#">Urbanisme</a>
+            <ul class="subdrop">
+              <li><a href="Urbanisme.html">P.L.U.I</a></li>
+              <li><a href="http://cadastre.gouv.fr/">Cadastre</a></li>
+              <li><a href="Cimetiere.html">Cimetière</a></li>
+            </ul>
+          </li>
+          <li><a href="Administratif.html">Administratif</a></li>
+          <li><a href="Tarifs.html">Tarifs</a></li>
+          <li><a href="Travaux.html">Travaux</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Syndicats</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/pages/service-collecte-et-valorisation-des-dechets-menagers-223.html">Ordures ménagères</a></li>
+          <li><a href="http://www.sitreva.fr/">Déchetterie</a></li>
+          <li><a href="Ecole.html">Regroupement pédagogique</a></li>
+          <li><a href="http://www.synd-eaux-villemeux.fr/accueil/historique/">Eaux de Ruffin</a></li>
+          <li class="has-sub">
+            <a href="https://www.sbv4r.fr/">S.E.B.V</a>
+            <ul class="subdrop">
+              <li><a href="https://www.sbv4r.fr/">S.E.B.V</a></li>
+              <li><a href="GEMAPI.html">GEMAPI</a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.energie28.fr/">Territoire Energie 28</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Nos Enfants</a>
+        <ul class="dropdown">
+          <li><a href="Ecole.html">Écoles</a></li>
+          <li><a href="Periscolaire.html">Périscolaire</a></li>
+          <li><a href="Assistantes Maternelles.html">Assistantes Maternelles</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://www.porteseureliennesidf.fr/">Com. de Communes</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/">PEIDF</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Publications</a>
+        <ul class="dropdown">
+          <li><a href="Petit_Chaudonnais.html">Petit Chaudonnais</a></li>
+          <li><a href="Bulletins municipaux.html">Bulletin municipal</a></li>
+          <li><a href="Manifestation.html">Manifestations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ BANDEAU DATE ══ -->
+<div class="date-band">
+  <span id="greeting2">Bienvenue</span>
+</div>
+
+<!-- ══ FIL D'ARIANE ══ -->
+<div class="breadcrumb">
+  <a href="index-2.html">Accueil</a><span>›</span>Nos Enfants<span>›</span>Assistantes Maternelles
+</div>
+
+<!-- ══ CORPS ══ -->
+<div class="page-body">
+
+  <div class="page-header">
+    <div class="section-label">Nos Enfants</div>
+    <h2>Assistantes Maternelles</h2>
+  </div>
+
+  <div class="intro-box">
+    <p>Pour toutes informations concernant les <strong>modes de garde</strong> — crèche, halte-garderie, liste d'assistantes maternelles — merci de contacter le Relais de la Petite Enfance (R.A.M) de votre secteur.</p>
+    <p>Le relais accompagne les familles et les assistantes maternelles dans leurs démarches, et tient à jour la liste des professionnels agréés disponibles sur la commune.</p>
+  </div>
+
+  <div class="ram-card">
+    <div class="ram-nom">Relais de la Petite Enfance — R.A.M</div>
+    <div class="ram-sous">« Le Blé en Herbe »</div>
+
+    <img src="images/Logo Com-Com.jpg" alt="Logo Communauté de Communes PEIDF" class="logo-comcom"
+         onerror="this.style.display='none'">
+
+    <div class="ram-contact">
+      <div class="ram-contact-item">
+        <span class="icon">📍</span>
+        <span>2 rue Michel Delattre — 28130 Pierres</span>
+      </div>
+      <div class="ram-contact-item">
+        <span class="icon">📞</span>
+        <a href="tel:0646778161">06 46 77 81 61</a>
+      </div>
+      <div class="ram-contact-item">
+        <span class="icon">✉️</span>
+        <a href="mailto:ram.lebleenherbe@porteseureliennesidf.fr">ram.lebleenherbe@porteseureliennesidf.fr</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <strong>Mairie de Chaudon</strong> · 28210 Chaudon · Eure-et-Loir
+  <div class="footer-links">
+    <a href="Ecole.html">Écoles</a>
+    <a href="Periscolaire.html">Périscolaire</a>
+    <a href="Assistantes Maternelles.html">Assistantes Maternelles</a>
+    <a href="La Mairie.html">Conseil municipal</a>
+    <a href="Administratif.html">Administratif</a>
+    <a href="Bulletins municipaux.html">Bulletin municipal</a>
+  </div>
+</footer>
+
+<script>
+function pad(n){return n<10?'0'+n:n;}
+function tick(){
+  var d=new Date();
+  var h=d.getHours(),m=d.getMinutes(),s=d.getSeconds();
+  var el=document.getElementById('clock');
+  if(el) el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
+  var greet='';
+  if(h>=6&&h<8) greet='Bon réveil';
+  else if(h>=8&&h<12) greet='Bonne matinée';
+  else if(h>=12&&h<13) greet='Bon appétit';
+  else if(h>=13&&h<17) greet='Bon après-midi';
+  else if(h>=17&&h<19) greet='Bonne fin d\'après-midi';
+  else if(h>=19&&h<22) greet='Bonne soirée';
+  else greet='Bonne nuit';
+  var jours=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var dateStr=jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+  var g1=document.getElementById('greeting');
+  if(g1) g1.textContent=greet;
+  var g2=document.getElementById('greeting2');
+  if(g2) g2.textContent='Bienvenue · '+greet+' · Nous sommes le '+dateStr;
+}
+tick(); setInterval(tick,1000);
+
+var ham=document.getElementById('ham');
+var menu=document.getElementById('navMenu');
+if(ham){
+  ham.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded',open);
+  });
+}
+</script>
+</body>
+</html>
