@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comptes rendus du Conseil Municipal – Chaudon 28210</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bleu:       #1a2744;
+  --bleu-med:   #2a4b9e;
+  --or:         #c9a84c;
+  --or-clair:   #e8cc72;
+  --pierre:     #f5f0e8;
+  --creme:      #fdf9f0;
+  --gris:       #5a5a6a;
+  --texte:      #1c1c2e;
+  --blanc:      #ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.6;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+
+/* ── HEADER ── */
+.site-header{background:var(--bleu);color:#fff;position:relative;overflow:hidden;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;font-size:0.88rem;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+
+/* ── NAV ── */
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:#fff;background:rgba(255,255,255,0.06);text-decoration:none;}
+.nav-menu > li:hover > a{color:var(--or-clair);}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+
+/* ── BANDEAU DATE ── */
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;letter-spacing:0.03em;}
+
+/* ── FIL D'ARIANE ── */
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb a:hover{color:var(--or);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+/* ── PAGE BODY ── */
+.page-body{max-width:900px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
+
+/* ── TITRE DE PAGE ── */
+.page-header{margin-bottom:2rem;border-bottom:1px solid rgba(201,168,76,0.35);padding-bottom:1rem;}
+.page-header .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--bleu);line-height:1.2;}
+
+/* ── ENCART LÉGAL ── */
+.legal-box{background:#fff;border-left:4px solid var(--or);border-radius:0 3px 3px 0;padding:1rem 1.3rem;margin-bottom:2rem;font-size:0.95rem;color:var(--gris);line-height:1.7;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.legal-box em{color:var(--texte);}
+.legal-box .ref{font-size:0.82rem;color:var(--bleu-med);margin-top:0.3rem;}
+
+/* ── TABLEAU DES SÉANCES ── */
+.annee-block{margin-bottom:2.2rem;}
+.annee-titre{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--bleu);background:rgba(26,39,68,0.05);border-left:3px solid var(--or);padding:0.45rem 0.9rem;margin-bottom:0.8rem;border-radius:0 2px 2px 0;}
+.seances-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.6rem;}
+.seance-item{background:#fff;border:1px solid #ddd8cc;border-radius:3px;padding:0.7rem 1rem;display:flex;align-items:center;gap:0.6rem;transition:border-color 0.15s,box-shadow 0.15s,transform 0.12s;}
+.seance-item:hover{border-color:var(--or);box-shadow:0 3px 10px rgba(0,0,0,0.09);transform:translateY(-1px);text-decoration:none;}
+.seance-item .seance-icon{font-size:1.1rem;flex-shrink:0;}
+.seance-item .seance-date{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--bleu);line-height:1.2;}
+.seance-item.no-link{color:var(--gris);cursor:default;opacity:0.6;}
+.seance-item.no-link:hover{border-color:#ddd8cc;box-shadow:none;transform:none;}
+.seance-item.no-link .seance-date{color:var(--gris);}
+
+/* ── NOTE ACROBAT ── */
+.acrobat-note{background:#fff;border:1px solid #ddd8cc;border-radius:3px;padding:0.8rem 1rem;display:flex;align-items:center;gap:1rem;font-size:0.85rem;color:var(--gris);margin-top:2rem;}
+.acrobat-note a{color:var(--bleu-med);}
+.acrobat-note a:hover{color:var(--or);}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .header-inner{padding:1rem;}
+  .header-info{display:none;}
+  .nav-inner{padding:0;}
+  .nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}
+  .nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .hamburger{display:block;}
+  .date-band{display:none;}
+  .seances-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/Blason Chaudon-1.jpg" alt="Blason de Chaudon" class="blason"
+         onerror="this.outerHTML='<div class=\'blason-fallback\'>🏛️</div>'">
+    <div class="header-text">
+      <div class="kicker">Mairie de Chaudon · Eure-et-Loir 28210</div>
+      <h1>Commune de <span>Chaudon</span></h1>
+    </div>
+    <div class="header-info">
+      <span id="greeting">Bonjour</span>
+      <strong>Il est <span id="clock">--:--:--</span></strong>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Accueil</a></li>
+
+      <li>
+        <a href="#">La commune</a>
+        <ul class="dropdown">
+          <li><a href="1011.html">Plan de Chaudon</a></li>
+          <li><a href="Geographie.html">Géographie</a></li>
+          <li class="has-sub">
+            <a href="#">Histoire</a>
+            <ul class="subdrop">
+              <li><a href="Histoire .html">Chaudon Origine</a></li>
+              <li><a href="siecle.html">Histoire d'un siècle</a></li>
+              <li><a href="Maires de Chaudon.html">Les Maires de Chaudon</a></li>
+            </ul>
+          </li>
+          <li><a href="Patrimoine .html">Patrimoine</a></li>
+          <li><a href="cassegrain .html">Laurent Cassegrain</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">La Mairie</a>
+        <ul class="dropdown">
+          <li><a href="La Mairie.html">Le Conseil Municipal</a></li>
+          <li><a href="conseil municipal.html">Comptes rendus C.M.</a></li>
+          <li class="has-sub">
+            <a href="#">Urbanisme</a>
+            <ul class="subdrop">
+              <li><a href="Urbanisme.html">P.L.U.I</a></li>
+              <li><a href="http://cadastre.gouv.fr/">Cadastre</a></li>
+              <li><a href="Cimetiere.html">Cimetière</a></li>
+            </ul>
+          </li>
+          <li><a href="Administratif.html">Administratif</a></li>
+          <li><a href="Tarifs.html">Tarifs</a></li>
+          <li><a href="Travaux.html">Travaux</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Syndicats</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/pages/service-collecte-et-valorisation-des-dechets-menagers-223.html">Ordures ménagères</a></li>
+          <li><a href="http://www.sitreva.fr/">Déchetterie</a></li>
+          <li><a href="Ecole.html">Regroupement pédagogique</a></li>
+          <li><a href="http://www.synd-eaux-villemeux.fr/accueil/historique/">Eaux de Ruffin</a></li>
+          <li class="has-sub">
+            <a href="https://www.sbv4r.fr/">S.E.B.V</a>
+            <ul class="subdrop">
+              <li><a href="https://www.sbv4r.fr/">S.E.B.V</a></li>
+              <li><a href="GEMAPI.html">GEMAPI</a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.energie28.fr/">Territoire Energie 28</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Nos Enfants</a>
+        <ul class="dropdown">
+          <li><a href="Ecole.html">Écoles</a></li>
+          <li><a href="Periscolaire.html">Périscolaire</a></li>
+          <li><a href="Assistantes Maternelles.html">Assistantes Maternelles</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="https://www.porteseureliennesidf.fr/">Com. de Communes</a>
+        <ul class="dropdown">
+          <li><a href="https://www.porteseureliennesidf.fr/">PEIDF</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">Publications</a>
+        <ul class="dropdown">
+          <li><a href="Petit_Chaudonnais.html">Petit Chaudonnais</a></li>
+          <li><a href="Bulletins municipaux.html">Bulletin municipal</a></li>
+          <li><a href="Manifestation.html">Manifestations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ BANDEAU DATE ══ -->
+<div class="date-band">
+  <span id="greeting2">Bienvenue</span>
+</div>
+
+<!-- ══ FIL D'ARIANE ══ -->
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a><span>›</span>La Mairie<span>›</span>Comptes rendus du Conseil Municipal
+</div>
+
+<!-- ══ CORPS ══ -->
+<div class="page-body">
+
+  <div class="page-header">
+    <div class="section-label">La Mairie</div>
+    <h2>Séances du Conseil Municipal</h2>
+  </div>
+
+  <div class="legal-box">
+    <em>Le compte rendu retrace les décisions prises par le Conseil municipal sur les délibérations inscrites à l'ordre du jour. Le procès-verbal est approuvé lors de la séance suivante et consultable une semaine après son approbation.</em>
+    <div class="ref">Article L 2121-25 du Code Général des Collectivités Territoriales</div>
+  </div>
+
+  <!-- 2025 -->
+  <div class="annee-block">
+    <div class="annee-titre">2025</div>
+    <div class="seances-grid">
+      <a href="C.M 2025.02.28.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">28 février 2025</span>
+      </a>
+      <a href="C.M 2025.04.10.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">10 avril 2025</span>
+      </a>
+      <a href="C.M 2025.06.13.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">13 juin 2025</span>
+      </a>
+      <a href="C.M 2025.10.03.html" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">03 octobre 2025</span>
+      </a>
+      <div class="seance-item no-link">
+        <span class="seance-icon">🕐</span>
+        <span class="seance-date">12 décembre 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="annee-block">
+    <div class="annee-titre">2024</div>
+    <div class="seances-grid">
+      <a href="CM 2024.02.23.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">23 février 2024</span>
+      </a>
+      <a href="C.M 2024.04.05.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">05 avril 2024</span>
+      </a>
+      <a href="C.M 2024.06.07.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">07 juin 2024</span>
+      </a>
+      <a href="C.M 2024.09.27.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">27 septembre 2024</span>
+      </a>
+      <a href="C.M 2024.12.13.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">13 décembre 2024</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="annee-block">
+    <div class="annee-titre">2023</div>
+    <div class="seances-grid">
+      <a href="CM 2023.03.03.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">03 mars 2023</span>
+      </a>
+      <a href="CM 2023.04.07.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">07 avril 2023</span>
+      </a>
+      <a href="CM 2023.06.09.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">09 juin 2023</span>
+      </a>
+      <a href="CM 2023.09.22.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">26 septembre 2023</span>
+      </a>
+      <a href="conseil municipal 8 décembre 2023-1.pdf" class="seance-item">
+        <span class="seance-icon">📄</span>
+        <span class="seance-date">08 décembre 2023</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Note Acrobat -->
+  <div class="acrobat-note">
+    <span style="font-size:1.6rem;">📕</span>
+    <span>Les comptes rendus sont au format PDF. Si vous ne disposez pas de lecteur PDF,
+    <a href="https://get.adobe.com/fr/reader/" target="_blank" rel="noopener">téléchargez Adobe Reader gratuitement</a>.</span>
+  </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <strong>Mairie de Chaudon</strong> · 28210 Chaudon · Eure-et-Loir
+  <div class="footer-links">
+    <a href="La Mairie.html">Conseil municipal</a>
+    <a href="Administratif.html">Administratif</a>
+    <a href="Urbanisme.html">Urbanisme</a>
+    <a href="Manifestation.html">Manifestations</a>
+    <a href="Bulletins municipaux.html">Bulletin municipal</a>
+    <a href="http://www.facebook.com/28210Chaudon/">Facebook</a>
+  </div>
+</footer>
+
+<script>
+function pad(n){return n<10?'0'+n:n;}
+function tick(){
+  var d=new Date();
+  var h=d.getHours(),m=d.getMinutes(),s=d.getSeconds();
+  var el=document.getElementById('clock');
+  if(el) el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
+  var greet='';
+  if(h>=6&&h<8) greet='Bon réveil';
+  else if(h>=8&&h<12) greet='Bonne matinée';
+  else if(h>=12&&h<13) greet='Bon appétit';
+  else if(h>=13&&h<17) greet='Bon après-midi';
+  else if(h>=17&&h<19) greet='Bonne fin d\'après-midi';
+  else if(h>=19&&h<22) greet='Bonne soirée';
+  else greet='Bonne nuit';
+  var jours=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var dateStr=jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+  var g1=document.getElementById('greeting');
+  if(g1) g1.textContent=greet;
+  var g2=document.getElementById('greeting2');
+  if(g2) g2.textContent='Bienvenue · '+greet+' · Nous sommes le '+dateStr;
+}
+tick(); setInterval(tick,1000);
+
+var ham=document.getElementById('ham');
+var menu=document.getElementById('navMenu');
+if(ham){
+  ham.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded',open);
+  });
+}
+</script>
+</body>
+</html>
