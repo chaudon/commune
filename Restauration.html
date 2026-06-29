@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restauration de l'Église Saint-Médard – Chaudon 28210</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bleu:#1a2744;--bleu-med:#2a4b9e;--or:#c9a84c;--or-clair:#e8cc72;--pierre:#f5f0e8;--gris:#5a5a6a;--texte:#1c1c2e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.75;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+.site-header{background:var(--bleu);position:relative;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:var(--or-clair);background:rgba(255,255,255,0.06);text-decoration:none;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;}
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+.page-body{max-width:1000px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
+.page-header{margin-bottom:2rem;border-bottom:1px solid rgba(201,168,76,0.35);padding-bottom:1rem;}
+.page-header .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--bleu);}
+
+/* Image couverture */
+.cover-img{width:100%;border-radius:3px;box-shadow:0 3px 14px rgba(0,0,0,0.12);display:block;margin-bottom:2rem;}
+
+/* Sections chronologiques */
+.section-part{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--bleu);background:var(--bleu);color:var(--or-clair);padding:0.6rem 1.2rem;border-radius:3px;margin:2.5rem 0 1.5rem;letter-spacing:0.05em;}
+
+.annee-block{margin-bottom:2rem;}
+.annee-titre{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--bleu);border-left:3px solid var(--or);padding:0.3rem 0.8rem;margin-bottom:0.8rem;background:rgba(201,168,76,0.08);border-radius:0 2px 2px 0;}
+
+.content-grid{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;align-items:start;margin-bottom:1rem;}
+.content-grid.reverse{grid-template-columns:2fr 1fr;}
+.content-grid img{width:100%;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.12);display:block;}
+.content-grid p{font-style:italic;line-height:1.8;font-size:0.97rem;}
+
+.prose-block{background:#fff;border-left:4px solid var(--or);border-radius:0 3px 3px 0;padding:1rem 1.4rem;margin-bottom:1.2rem;font-style:italic;font-size:0.97rem;line-height:1.8;box-shadow:0 1px 6px rgba(0,0,0,0.05);}
+
+.photos-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-bottom:1.2rem;}
+.photos-row img{width:100%;height:160px;object-fit:cover;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:block;}
+
+.photos-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.photos-duo img{width:100%;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:block;}
+
+.conclusion{background:var(--bleu);color:#fff;border-radius:3px;padding:1.4rem 1.8rem;margin-top:2rem;font-style:italic;font-size:1rem;line-height:1.8;}
+.conclusion strong{color:var(--or-clair);}
+
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+@media(max-width:640px){
+  .header-inner{padding:1rem;}.header-info{display:none;}
+  .nav-inner{padding:0;}.nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}.nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .hamburger{display:block;}.date-band{display:none;}
+  .content-grid,.content-grid.reverse{grid-template-columns:1fr;}
+  .photos-row{grid-template-columns:1fr 1fr;}
+  .photos-duo{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/Blason Chaudon-1.jpg" alt="Blason de Chaudon" class="blason" onerror="this.outerHTML='<div class=\'blason-fallback\'>🏛️</div>'">
+    <div class="header-text">
+      <div class="kicker">Mairie de Chaudon · Eure-et-Loir 28210</div>
+      <h1>Commune de <span>Chaudon</span></h1>
+    </div>
+    <div class="header-info">
+      <span id="greeting">Bonjour</span>
+      <strong>Il est <span id="clock">--:--:--</span></strong>
+    </div>
+  </div>
+</header>
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index-2.html">Accueil</a></li>
+      <li><a href="#">La commune</a><ul class="dropdown"><li><a href="1011.html">Plan de Chaudon</a></li><li><a href="Geographie.html">Géographie</a></li><li class="has-sub"><a href="#">Histoire</a><ul class="subdrop"><li><a href="Histoire .html">Chaudon Origine</a></li><li><a href="siecle.html">Histoire d'un siècle</a></li><li><a href="Maires de Chaudon.html">Les Maires de Chaudon</a></li></ul></li><li><a href="Patrimoine .html">Patrimoine</a></li><li><a href="cassegrain .html">Laurent Cassegrain</a></li></ul></li>
+      <li><a href="#">La Mairie</a><ul class="dropdown"><li><a href="La Mairie.html">Le Conseil Municipal</a></li><li><a href="conseil_municipal.html">Comptes rendus C.M.</a></li><li class="has-sub"><a href="#">Urbanisme</a><ul class="subdrop"><li><a href="Urbanisme.html">P.L.U.I</a></li><li><a href="http://cadastre.gouv.fr/">Cadastre</a></li><li><a href="Cimetiere.html">Cimetière</a></li></ul></li><li><a href="Administratif.html">Administratif</a></li><li><a href="Tarifs.html">Tarifs</a></li><li><a href="Travaux.html">Travaux</a></li></ul></li>
+      <li><a href="#">Syndicats</a><ul class="dropdown"><li><a href="https://www.porteseureliennesidf.fr/pages/service-collecte-et-valorisation-des-dechets-menagers-223.html">Ordures ménagères</a></li><li><a href="http://www.sitreva.fr/">Déchetterie</a></li><li><a href="Ecole.html">Regroupement pédagogique</a></li><li><a href="http://www.synd-eaux-villemeux.fr/accueil/historique/">Eaux de Ruffin</a></li><li class="has-sub"><a href="https://www.sbv4r.fr/">S.E.B.V</a><ul class="subdrop"><li><a href="https://www.sbv4r.fr/">S.E.B.V</a></li><li><a href="GEMAPI.html">GEMAPI</a></li></ul></li><li><a href="https://www.energie28.fr/">Territoire Energie 28</a></li></ul></li>
+      <li><a href="#">Nos Enfants</a><ul class="dropdown"><li><a href="Ecole.html">Écoles</a></li><li><a href="Periscolaire.html">Périscolaire</a></li><li><a href="Assistantes Maternelles.html">Assistantes Maternelles</a></li></ul></li>
+      <li><a href="https://www.porteseureliennesidf.fr/">Com. de Communes</a><ul class="dropdown"><li><a href="https://www.porteseureliennesidf.fr/">PEIDF</a></li></ul></li>
+      <li><a href="#">Publications</a><ul class="dropdown"><li><a href="Petit_Chaudonnais.html">Petit Chaudonnais</a></li><li><a href="Bulletins municipaux.html">Bulletin municipal</a></li><li><a href="Manifestation.html">Manifestations</a></li></ul></li>
+    </ul>
+  </div>
+</nav>
+<div class="date-band"><span id="greeting2">Bienvenue</span></div>
+<div class="breadcrumb"><a href="index-2.html">Accueil</a><span>›</span><a href="Patrimoine .html">Patrimoine</a><span>›</span>Restauration de l'église</div>
+
+<div class="page-body">
+  <div class="page-header">
+    <div class="section-label">Patrimoine · Église Saint-Médard</div>
+    <h2>Restauration de l'Église — 1993–2006</h2>
+  </div>
+
+  <img src="images/Photos brochure/Couverture20001.jpg" alt="Vue plongeante de la nef — Église Saint-Médard de Chaudon" class="cover-img" onerror="this.style.display='none'">
+
+  <!-- EXTÉRIEUR -->
+  <div class="section-part">✦ Extérieur</div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1993 — Les débuts</div>
+    <div class="content-grid">
+      <img src="images/Photos brochure/Eglise 01.2005.jpg" alt="Église Saint-Médard 2005" onerror="this.style.display='none'">
+      <p>Après avoir effectué le remaniage de la couverture dans les années 1980, c'est en 1993 que la municipalité de Chaudon décide de rénover son église. Aimé Garaud, l'employé communal et ancien maçon, commence les travaux par les enduits extérieurs. Il s'agit de piqueter l'ancien enduit pour laisser les pierres apparentes et combler les joints d'un enduit vieux rose rappelant celui du clocher. En avril, premier coup de burin sur la façade Nord près de la sacristie. Deux mois de travail : ce panneau est terminé pour la Saint-Médard. Les deux pointes et la deuxième travée sont faites la même année.</p>
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1994 — Façade Ouest et découvertes</div>
+    <div class="content-grid reverse">
+      <p>Dès le mois de mars, deuxième tranche des travaux : la façade Ouest, c'est-à-dire l'entrée principale. Une première partie jusqu'au cordon de briques fait découvrir une niche rebouchée depuis plus de 100 ans. Il faut maçonner l'intérieur avant d'y installer une sculpture en granit représentant St Médard, financée en partie par l'association diocésaine du secteur de Nogent-le-Roi et M. l'abbé Jeanne, le reste par souscription. La pointe est réalisée à la suite et terminée début juin. En septembre, travaux du côté de la sacristie où un cintre en brique sous la fenêtre est démonté et reconstruit en pierre.</p>
+      <img src="images/Photos brochure/100002.jpg" alt="Travaux façade 1994" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1995 — Côté Est</div>
+    <div class="prose-block">Remise en état côté est. Les soubassements sont en mauvais état : les pierres ne tiennent plus, des trous énormes sont comblés. Les pierres autour des vitraux sont nettoyées, la peinture des grilles et des grillages de protection effectuée.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1997 — Reprise du ravalement côté Sud</div>
+    <div class="content-grid">
+      <img src="images/Photos brochure/20001.jpg" alt="Ravalement côté Sud 1997" onerror="this.style.display='none'">
+      <p>Après une année sans travaux, en septembre 1997, notre maçon reprend pied. Le ravalement recommence avec la découverte d'un cintre côté sud qui sera conservé et restera apparent — sans doute l'emplacement d'un ancien vitrail.</p>
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1998 — La Porte Saint-Médard retrouvée</div>
+    <div class="content-grid reverse">
+      <p>En avril, le piquetage d'une partie sud est maçonné. Les piliers sont restaurés et jointés. La municipalité décide d'ouvrir la porte côté Nord, condamnée depuis plus d'un siècle. C'est chose faite en septembre. L'ouverture solennelle a lieu à l'occasion des Journées du Patrimoine le 20 septembre. Cette porte retrouve le nom de <strong>« Porte Saint-Médard »</strong>. Les deux piliers nord, très abîmés, ainsi que leurs gargouilles sont démontés, retaillés et terminés en automne. La grille de protection du vitrail Saint-André, restauré en 1996 par M. Picol de Chartres, est reposée.</p>
+      <img src="images/porte st.jpg" alt="Porte Saint-Médard" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">Novembre 1998 : après 5 ans de travaux, le ravalement extérieur est terminé. Il reste évidemment beaucoup de choses à rénover dans ce monument. Cela prendra encore du temps mais la tâche sera poursuivie.</div>
+  </div>
+
+  <!-- INTÉRIEUR -->
+  <div class="section-part">✦ Intérieur</div>
+
+  <div class="annee-block">
+    <div class="annee-titre">1999 — Le tambour de l'entrée</div>
+    <div class="content-grid">
+      <img src="images/Photos brochure/Clocher1.jpg" alt="Clocher" onerror="this.style.display='none'">
+      <p>Avril : après concertation, la municipalité décide d'entreprendre les ravalements intérieurs. Même procédé : piquetage de l'ancien enduit pour laisser les pierres apparentes et combler les joints d'un enduit « ton pierre ». Cette année-là, le tambour de l'entrée principale est rénové.</p>
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2000 — Le clocher</div>
+    <div class="prose-block">Mars : une partie importante — le clocher ! Le piquetage sera effectué avec attention. Des textes anciens laissent penser que le blason des armoiries de Chaudon pourrait apparaître à cet endroit. Malheureusement aucune trace de ce blason. Fin mai, la partie du clocher est terminée. Le confessionnal est démonté avec soin, rénové et remis en place.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2001 — Le bas-côté</div>
+    <div class="content-grid reverse">
+      <p>Mars : c'est au tour du bas-côté. Surprise : après piquetage de l'enduit au-dessus des cintres, des briques apparaissent. Un piochage plus important est nécessaire pour les recouvrir d'un enduit.</p>
+      <img src="images/Photos brochure/130001.jpg" alt="Travaux intérieurs 2001" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2002 — Les cintres du bas-côté</div>
+    <div class="photos-duo">
+      <img src="images/Photos brochure/14.jpg" alt="Travaux 2002" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/100.jpg" alt="Travaux cintres 2002" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">Juin : les travaux sur les cintres du bas-côté continuent avec un échafaudage important. Par travée, les trois faces du bas-côté sont rénovées. En partie haute sous les sablières, après piquetage, des pierres en grès sont découvertes — elles seront nettoyées et laissées apparentes. En septembre, travaux dans les cintres de la nef principale. Les quatre travées sont terminées fin novembre.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2003 — Sacristie, autel de la Vierge et abside</div>
+    <div class="content-grid">
+      <img src="images/Photos brochure/2.jpg" alt="Abside 2003" onerror="this.style.display='none'">
+      <p>En tout début d'année, une petite incursion dans la sacristie. Le plafond, en mauvais état, est démonté et reconstruit à neuf. En mars, l'autel de la Vierge demande un soin particulier : il faut protéger les boiseries et les deux statues en bois, St Mamert et St Médard. Au mois de juin, cette partie est terminée. Depuis septembre, après avoir démonté le retable et le maître-autel, notre maçon pioche, rebouche et rejointe les pierres de l'abside pentagonale. Les tableaux du retable dont le principal représente Jésus en Croix sont en cours de rénovation par M. Juan Cook, artiste peintre.</p>
+    </div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2003 (suite) — Découvertes archéologiques</div>
+    <div class="photos-duo">
+      <img src="images/Photos brochure/50.jpg" alt="Ouverture romane" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/40.jpg" alt="Détail 2003" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">En piochant l'ancien enduit derrière le retable, une ouverture romane apparaît (visible également de l'extérieur), ainsi qu'une niche. Elles seront conservées et remises en état. Le sol derrière l'autel, en mauvais état, nécessite la réfection du carrelage.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2004 — Le pignon de l'entrée et les tableaux restaurés</div>
+    <div class="photos-duo">
+      <img src="images/Photos brochure/02.jpg" alt="Travaux 2004" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/7.jpg" alt="Tableau restauré 2004" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">Au printemps, onze semaines sont nécessaires pour finir les joints du premier vitrail jusqu'à la chaire. En août, les tableaux restaurés, le retable est remonté avec soin, légèrement éloigné du mur pour laisser un passage et conserver la vision de l'ancienne ouverture romane. Fin 2004, les joints terminés jusqu'au pignon de l'entrée, les tableaux du chemin de croix sont remis en place.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">2005 — Le pignon et la découverte des armoiries</div>
+    <div class="photos-row">
+      <img src="images/Photos brochure/09.jpg" alt="Pignon 2005" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/012.jpg" alt="Travaux pignon" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/05.jpg" alt="Vue intérieure 2005" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">Dernier panneau des murs intérieurs : le pignon de l'entrée. Un échafaudage important est mis en place. De chaque côté du tambour, on découvre deux pierres de consécration. Les jointements de pierres terminés, les tableaux du chemin de croix sont raccrochés. Deux d'entre eux sont confiés à M. Juan Cook pour rénovation. Notre maçon, après avoir œuvré à l'extérieur de 1993 à 1998 et à l'intérieur de 1999 à 2005, est au bout de sa tâche.</div>
+    <div class="prose-block" style="border-color:var(--or);background:#fffbf0;">⭐ <strong>Heureuse surprise !</strong> La découverte d'une partie des armoiries de Chaudon sur un des piliers du clocher : on peut y apercevoir une étoile et un croissant.</div>
+  </div>
+
+  <div class="annee-block">
+    <div class="annee-titre">Septembre 2005 – Septembre 2006 — Finitions</div>
+    <div class="photos-duo">
+      <img src="images/Photos brochure/8.jpg" alt="Allée en grès" onerror="this.style.display='none'">
+      <img src="images/Photos brochure/0004.jpg" alt="Porte Saint-Médard" onerror="this.style.display='none'">
+    </div>
+    <div class="prose-block">La porte Saint-Médard, réouverte en 1998, profite d'une allée en grès posée de la porte jusqu'au bord de la rue. La porte d'accès au clocher, réduite en hauteur suite aux remblaiements successifs du sol, retrouve sa hauteur d'origine : le sol a été creusé de 60 centimètres, une plate-forme et un escalier en pierres de trois marches ont été réalisés. En septembre 2006, une balustrade et une porte en fer forgé ont été ajoutées pour sécuriser l'ensemble.</div>
+  </div>
+
+  <div class="conclusion">
+    <strong>Après douze ans</strong>, à raison de cinq à six mois environ de travail effectif par année, la rénovation intérieure et extérieure de ce monument lui a permis de retrouver un nouvel aspect tout en respectant le patrimoine.
+  </div>
+</div>
+
+<footer class="site-footer">
+  <strong>Mairie de Chaudon</strong> · 28210 Chaudon · Eure-et-Loir
+  <div class="footer-links">
+    <a href="Patrimoine .html">Patrimoine</a>
+    <a href="eglise.html">Église Saint-Médard</a>
+    <a href="Chateau.html">Château de Mormoulins</a>
+    <a href="La Mairie.html">Conseil municipal</a>
+    <a href="Bulletins municipaux.html">Bulletin municipal</a>
+  </div>
+</footer>
+
+<script>
+function pad(n){return n<10?'0'+n:n;}
+function tick(){
+  var d=new Date(),h=d.getHours(),m=d.getMinutes(),s=d.getSeconds();
+  var el=document.getElementById('clock');if(el) el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
+  var greet='';
+  if(h>=6&&h<8) greet='Bon réveil';
+  else if(h>=8&&h<12) greet='Bonne matinée';
+  else if(h>=12&&h<13) greet='Bon appétit';
+  else if(h>=13&&h<17) greet='Bon après-midi';
+  else if(h>=17&&h<19) greet='Bonne fin d\'après-midi';
+  else if(h>=19&&h<22) greet='Bonne soirée';
+  else greet='Bonne nuit';
+  var jours=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var g1=document.getElementById('greeting');if(g1) g1.textContent=greet;
+  var g2=document.getElementById('greeting2');if(g2) g2.textContent='Bienvenue · '+greet+' · Nous sommes le '+jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+}
+tick();setInterval(tick,1000);
+var ham=document.getElementById('ham'),menu=document.getElementById('navMenu');
+if(ham){ham.addEventListener('click',function(){var o=menu.classList.toggle('open');ham.setAttribute('aria-expanded',o);});}
+</script>
+</body>
+</html>
