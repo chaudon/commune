@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histoire d'un siècle – Chaudon 28210</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bleu:#1a2744;--bleu-med:#2a4b9e;--or:#c9a84c;--or-clair:#e8cc72;--pierre:#f5f0e8;--gris:#5a5a6a;--texte:#1c1c2e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.75;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+.site-header{background:var(--bleu);position:relative;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:var(--or-clair);background:rgba(255,255,255,0.06);text-decoration:none;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;}
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+.page-body{max-width:1050px;margin:0 auto;padding:1.8rem 1.4rem 3rem;}
+.page-header{margin-bottom:2rem;border-bottom:1px solid rgba(201,168,76,0.35);padding-bottom:1rem;}
+.page-header .section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.3rem;}
+.page-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--bleu);}
+
+.histoire-nav{display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:2rem;}
+.histoire-nav a{display:inline-flex;align-items:center;gap:0.4rem;background:var(--bleu);color:var(--or-clair);padding:0.55rem 1.1rem;border-radius:2px;font-size:0.85rem;transition:background 0.15s;}
+.histoire-nav a:hover{background:var(--bleu-med);color:#fff;text-decoration:none;}
+
+.epoque{margin-bottom:2.5rem;}
+.epoque-header{background:var(--bleu);color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;padding:0.6rem 1.2rem;border-radius:3px;margin-bottom:1.2rem;letter-spacing:0.05em;}
+
+.content-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;align-items:start;margin-bottom:1.2rem;}
+.content-grid.left-img{grid-template-columns:1fr 2fr;}
+.content-grid img{width:100%;border-radius:3px;box-shadow:0 3px 12px rgba(0,0,0,0.14);display:block;}
+
+.prose{background:#fff;border-left:4px solid var(--or);border-radius:0 3px 3px 0;padding:1.2rem 1.5rem;margin-bottom:1.2rem;line-height:1.85;box-shadow:0 1px 6px rgba(0,0,0,0.06);}
+.prose p{margin-bottom:0.9rem;}
+.prose p:last-child{margin-bottom:0;}
+
+.three-col{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:start;margin-bottom:1.5rem;}
+.three-col img{width:100%;border-radius:3px;box-shadow:0 3px 12px rgba(0,0,0,0.14);display:block;}
+.three-col .mid{display:flex;flex-direction:column;gap:1rem;}
+.three-col .mid img{width:180px;}
+
+.photos-duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.photos-duo img{width:100%;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,0.12);display:block;}
+
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+@media(max-width:768px){
+  .content-grid,.content-grid.left-img,.three-col{grid-template-columns:1fr;}
+  .photos-duo{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .header-inner{padding:1rem;}.header-info{display:none;}
+  .nav-inner{padding:0;}.nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}.nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .hamburger{display:block;}.date-band{display:none;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/Blason Chaudon-1.jpg" alt="Blason de Chaudon" class="blason" onerror="this.outerHTML='<div class=\'blason-fallback\'>🏛️</div>'">
+    <div class="header-text">
+      <div class="kicker">Mairie de Chaudon · Eure-et-Loir 28210</div>
+      <h1>Commune de <span>Chaudon</span></h1>
+    </div>
+    <div class="header-info">
+      <span id="greeting">Bonjour</span>
+      <strong>Il est <span id="clock">--:--:--</span></strong>
+    </div>
+  </div>
+</header>
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index-2.html">Accueil</a></li>
+      <li><a href="#">La commune</a><ul class="dropdown"><li><a href="1011.html">Plan de Chaudon</a></li><li><a href="Geographie.html">Géographie</a></li><li class="has-sub"><a href="#">Histoire</a><ul class="subdrop"><li><a href="Histoire .html">Chaudon Origine</a></li><li><a href="siecle.html">Histoire d'un siècle</a></li><li><a href="Maires de Chaudon.html">Les Maires de Chaudon</a></li></ul></li><li><a href="Patrimoine .html">Patrimoine</a></li><li><a href="cassegrain .html">Laurent Cassegrain</a></li></ul></li>
+      <li><a href="#">La Mairie</a><ul class="dropdown"><li><a href="La Mairie.html">Le Conseil Municipal</a></li><li><a href="conseil_municipal.html">Comptes rendus C.M.</a></li><li class="has-sub"><a href="#">Urbanisme</a><ul class="subdrop"><li><a href="Urbanisme.html">P.L.U.I</a></li><li><a href="http://cadastre.gouv.fr/">Cadastre</a></li><li><a href="Cimetiere.html">Cimetière</a></li></ul></li><li><a href="Administratif.html">Administratif</a></li><li><a href="Tarifs.html">Tarifs</a></li><li><a href="Travaux.html">Travaux</a></li></ul></li>
+      <li><a href="#">Syndicats</a><ul class="dropdown"><li><a href="https://www.porteseureliennesidf.fr/pages/service-collecte-et-valorisation-des-dechets-menagers-223.html">Ordures ménagères</a></li><li><a href="http://www.sitreva.fr/">Déchetterie</a></li><li><a href="Ecole.html">Regroupement pédagogique</a></li><li><a href="http://www.synd-eaux-villemeux.fr/accueil/historique/">Eaux de Ruffin</a></li><li class="has-sub"><a href="https://www.sbv4r.fr/">S.E.B.V</a><ul class="subdrop"><li><a href="https://www.sbv4r.fr/">S.E.B.V</a></li><li><a href="GEMAPI.html">GEMAPI</a></li></ul></li><li><a href="https://www.energie28.fr/">Territoire Energie 28</a></li></ul></li>
+      <li><a href="#">Nos Enfants</a><ul class="dropdown"><li><a href="Ecole.html">Écoles</a></li><li><a href="Periscolaire.html">Périscolaire</a></li><li><a href="Assistantes Maternelles.html">Assistantes Maternelles</a></li></ul></li>
+      <li><a href="https://www.porteseureliennesidf.fr/">Com. de Communes</a><ul class="dropdown"><li><a href="https://www.porteseureliennesidf.fr/">PEIDF</a></li></ul></li>
+      <li><a href="#">Publications</a><ul class="dropdown"><li><a href="Petit_Chaudonnais.html">Petit Chaudonnais</a></li><li><a href="Bulletins municipaux.html">Bulletin municipal</a></li><li><a href="Manifestation.html">Manifestations</a></li></ul></li>
+    </ul>
+  </div>
+</nav>
+<div class="date-band"><span id="greeting2">Bienvenue</span></div>
+<div class="breadcrumb"><a href="index-2.html">Accueil</a><span>›</span>La commune<span>›</span>Histoire<span>›</span>Histoire d'un siècle</div>
+
+<div class="page-body">
+  <div class="page-header">
+    <div class="section-label">Histoire · La commune</div>
+    <h2>Chaudon — Histoire d'un siècle</h2>
+  </div>
+
+  <div class="histoire-nav">
+    <a href="Histoire .html">📜 Chaudon Origine</a>
+    <a href="siecle.html">🕰️ Histoire d'un siècle</a>
+    <a href="Maires de Chaudon.html">🏛️ Les Maires de Chaudon</a>
+    <a href="cartes_postales.html">🗺️ Cartes postales anciennes</a>
+  </div>
+
+  <!-- L'électricité -->
+  <div class="epoque">
+    <div class="epoque-header">⚡ L'électricité à Chaudon</div>
+    <div class="content-grid">
+      <div class="prose">
+        <p>L'inauguration eut lieu le <strong>27 septembre 1925</strong>. Une grande fête fut organisée où tous, jeunes et vieux, participèrent. Défilé de chars, cavalcades, exposition de matériels modernes.</p>
+        <p>Au cours du bal sous tente, une reine de l'électricité fut élue, mademoiselle Emilienne Marvin, mesdemoiselles Blanche Galerne et Madeleine Dufour étaient ses demoiselles d'honneur. Au banquet, honoré de la présence de monsieur le sous préfet, ce fut monsieur Camille Godard qui prononça les paroles d'usage, monsieur Laurent, maire de l'époque, étant souffrant.</p>
+        <p>Tout de suite, la fée électricité apporta son pouvoir magique : les rues et les cours furent éclairées, les petits moteurs à essence Bernard qui faisaient tourner les bancs de scies, les grugeoirs à pommes, les aplatisseurs de grains, les coupes racine, furent remplacés par des moteurs électriques de toutes puissances. Quelques Chaudonnais se montrèrent récalcitrants, prétextant que c'était dangereux et sujet à mettre le feu. Un propriétaire alla jusqu'à refuser que les fils aériens passent au-dessus de sa propriété.</p>
+        <p>De 1955 à 1966, <a href="http://eolienne.cavey.org/" target="_blank" rel="noopener">l'éolienne expérimentale à grande puissance de Nogent-le-Roi</a>.</p>
+      </div>
+      <div>
+        <img src="images/electric.JPG" alt="L'électricité à Chaudon" onerror="this.style.display='none'">
+        <img src="images/Pompiers de Chaudon 1.JPG" alt="Les pompiers de Chaudon" style="margin-top:1rem;" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+
+  <!-- L'eau -->
+  <div class="epoque">
+    <div class="epoque-header">💧 L'eau à Chaudon</div>
+    <div class="prose">
+      <p>Tout le monde avait un puits. Les plus aisés avaient une pompe, soit dehors, soit à l'intérieur, mais l'eau était plus ou moins potable. L'eau sous pression fut installée en <strong>1961–1962</strong>, ce qui amena une transformation dans toutes les maisons et une sécurité accrue pour tout le monde.</p>
+      <p>Ce fut notamment important pour le corps des sapeurs-pompiers qui à l'époque n'avait que deux pompes à bras, une aspirante et refoulante, l'autre refoulante seulement et des seaux en toile.</p>
+    </div>
+  </div>
+
+  <!-- Le travail -->
+  <div class="epoque">
+    <div class="epoque-header">🌾 Le travail à Chaudon</div>
+    <div class="content-grid left-img">
+      <img src="images/battage.JPG" alt="Le battage à Chaudon" onerror="this.style.display='none'">
+      <div class="prose">
+        <p>Le travail de la population chaudonnaise dépendait principalement de la culture. Beaucoup de tout petits cultivateurs étaient journaliers, charretiers, bergers, vachers, gars de cours, abatteurs de bois, suivant le nombre d'hectares cultivés et les saisons.</p>
+        <p>L'embauche se faisait une ou deux fois l'an à la louée de saint Martin ou saint Jean. Avant la première guerre, on commence à voir, dans les grosses exploitations, la faucheuse-javeleuse. C'était déjà mieux que de couper les céréales à la sape, à la faucille ou la faux. Puis vinrent les faucheuses-lieuses.</p>
+        <p>Les moissons commençaient beaucoup plus tôt qu'aujourd'hui. Les bottes étaient dressées par tas de 9, appelés des diziaux ; les grains finissaient de mûrir en attendant d'être charriés et rentrés dans les granges, ou mis en tas qu'on appelait des meules. Sitôt les premières céréales rentrées, les entrepreneurs de battage allaient de ferme en ferme pour débuter par une journée ou deux avec leurs locomobiles chauffées au charbon au degré de chaleur voulu, on entendait le coup de sifflet et les gars de batterie prenaient leurs postes : deux sur le tas à battre, deux engraineurs, trois ou quatre à faire les bottes de paille, deux au "menu", deux pour les sacs de grains, et un à la menu paille.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Les artisans -->
+  <div class="epoque">
+    <div class="epoque-header">🔨 Les artisans et commerces</div>
+    <div class="content-grid">
+      <div class="prose">
+        <p>Il y avait à Chaudon des artisans qui, naturellement, étaient plus ou moins tributaires de l'agriculture. Rue de la cave, c'était le père Louis. On connaissait à peine son nom, soi-disant qu'il était Belge… tout ce qui était en bois, c'était son affaire. Il travaillait pour subsister et non par appât du gain. C'était un bon vieux, il fut le maître de Camille Godard. Ce dernier travaillait lui aussi artistement le bois : manches pour toutes sortes d'outils, pelles, pioches, râteaux, javeliers, tonneaux, cuviers. Il exposait dans les foires et les comices agricoles ses tonnelets cerclés de cuivre. Il était aussi tourneur sur bois. Avant que la force électrique n'arrive, son tour était actionné au pied, à l'aide d'une pédale. C'était un brave homme, simple, qui fut adjoint pendant 43 ans et connu partout pour son dynamisme et sa clairvoyance administrative.</p>
+        <p>Depuis très longtemps, on fabriquait des sabots à Chaudon. Le bois employé était surtout de l'aulne, du noyer également. Deux ouvriers sabotiers, dont le maître était Monsieur Berteaux, avaient leur atelier place de la croix. Monsieur Robert Prunier était lui aussi sabotier ; il avait appris le métier chez le père Louis et chez un sabotier de Villiers-le-Morhier.</p>
+        <p>À la fin du siècle dernier et au début du nôtre, l'entreprise de maçonnerie Bigard Frères était très réputée. Ils avaient en pleine saison une quinzaine d'ouvriers et pouvaient se permettre de maçonner tous les styles, anciens et nouveaux. Si l'ouverture de la boulangerie ne date que de mai 1949 grâce à l'insistance du maire de l'époque auprès de la préfecture, en revanche, Chaudon ne comptait pas moins de <strong>8 cafés</strong>, certains assurant en même temps le commerce de l'alimentation.</p>
+        <p>Quant à la briqueterie de Gilles-Fosses, son premier propriétaire s'appelait M. Gérin ; puis ce fut MM. Courbarien père et fils qui firent construire un 2e four circulaire, chauffé au poussier de charbon à distribution automatique. Le premier fonctionnait au bois pour cuire principalement la brique creuse faite avec de la terre de Chaudon mêlée avec de la glaise provenant d'Allemant. Le plein rendement de la briqueterie fut atteint entre les deux guerres : un embranchement particulier était relié à la ligne de chemin de fer. Il y eut jusqu'à <strong>50 ouvriers</strong> avant l'installation des presses électriques.</p>
+      </div>
+      <div>
+        <img src="images/sabotier.JPG" alt="Le sabotier de Chaudon" onerror="this.style.display='none'">
+        <img src="images/brique.JPG" alt="La briqueterie de Chaudon" style="margin-top:1rem;" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+
+  <!-- Le moulin et la rue -->
+  <div class="epoque">
+    <div class="epoque-header">🏘️ Le moulin et les rues de Chaudon</div>
+    <div class="three-col">
+      <div>
+        <img src="images/moulin2.JPG" alt="Le moulin de Mormoulins" onerror="this.style.display='none'">
+        <div class="prose" style="margin-top:1rem;">
+          <p>Le moulin de Mormoulins pouvait autrefois fabriquer de la farine panifiable. Quatre paires de meules y étaient actionnées par une roue à aube. Des bluteries tamisaient les grains écrasés. Les meuniers successifs Messieurs Passard, Galerne, Guiard, puis Boucher père faisaient une distribution en campagne dans les fermes : ils appelaient ça la <em>« maunée »</em>.</p>
+        </div>
+      </div>
+      <div></div>
+      <div>
+        <img src="images/Rue de la Cave.JPG" alt="Rue de la Cave à Chaudon" onerror="this.style.display='none'">
+        <div class="prose" style="margin-top:1rem;">
+          <p>Chaudon aussi a bien changé ! En 1925, il n'y avait pas de nom de rues, ni de numéros, les trottoirs, c'étaient les talus herbus au pied des maisons, ils avaient leur utilité pour circuler en cas d'inondation. Tout le long des murs, sur la rue, il y avait des pieds de vignes que chaque propriétaire taillait et entretenait.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <strong>Mairie de Chaudon</strong> · 28210 Chaudon · Eure-et-Loir
+  <div class="footer-links">
+    <a href="Histoire .html">Chaudon Origine</a>
+    <a href="Maires de Chaudon.html">Les Maires</a>
+    <a href="cartes_postales.html">Cartes postales</a>
+    <a href="Patrimoine .html">Patrimoine</a>
+    <a href="La Mairie.html">Conseil municipal</a>
+  </div>
+</footer>
+
+<script>
+function pad(n){return n<10?'0'+n:n;}
+function tick(){
+  var d=new Date(),h=d.getHours(),m=d.getMinutes(),s=d.getSeconds();
+  var el=document.getElementById('clock');if(el) el.textContent=pad(h)+':'+pad(m)+':'+pad(s);
+  var greet='';
+  if(h>=6&&h<8) greet='Bon réveil';
+  else if(h>=8&&h<12) greet='Bonne matinée';
+  else if(h>=12&&h<13) greet='Bon appétit';
+  else if(h>=13&&h<17) greet='Bon après-midi';
+  else if(h>=17&&h<19) greet='Bonne fin d\'après-midi';
+  else if(h>=19&&h<22) greet='Bonne soirée';
+  else greet='Bonne nuit';
+  var jours=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var g1=document.getElementById('greeting');if(g1) g1.textContent=greet;
+  var g2=document.getElementById('greeting2');if(g2) g2.textContent='Bienvenue · '+greet+' · Nous sommes le '+jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()]+' '+d.getFullYear();
+}
+tick();setInterval(tick,1000);
+var ham=document.getElementById('ham'),menu=document.getElementById('navMenu');
+if(ham){ham.addEventListener('click',function(){var o=menu.classList.toggle('open');ham.setAttribute('aria-expanded',o);});}
+</script>
+</body>
+</html>
