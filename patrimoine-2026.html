@@ -791,7 +791,7 @@ function doPost(e) {
   ]);
   var dispo = 15 - totalPris - parseInt(d.nb_personnes);
   MailApp.sendEmail({
-    to: "ar.croquesel@gmail.com",
+    to: "ar.croquesel@gmail.com, arnaud.croquesel@chaudon.fr",
     subject: "⚙️ Réservation Moulin – " + d.prenom + " " + d.nom,
     body:
       "Nouvelle réservation !\n\n" +
