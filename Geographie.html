@@ -79,6 +79,8 @@ nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
 .vues-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-bottom:1.5rem;}
 .vues-grid img{width:100%;height:200px;object-fit:cover;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:block;transition:box-shadow 0.15s;}
 .vues-grid img:hover{box-shadow:0 5px 16px rgba(0,0,0,0.18);}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:3px;box-shadow:0 3px 12px rgba(0,0,0,0.12);}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 
 .site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
 .site-footer strong{color:rgba(255,255,255,0.85);}
@@ -214,6 +216,20 @@ nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
     <img src="images/Vue4.jpg" alt="Vue aérienne de Chaudon 4" onerror="this.style.display='none'">
     <img src="images/Vue5.jpg" alt="Vue aérienne de Chaudon 5" onerror="this.style.display='none'">
     <img src="images/Vue6.jpg" alt="Vue aérienne de Chaudon 6" onerror="this.style.display='none'">
+  </div>
+
+  <div class="section-title">Chaudon vue du ciel — aujourd'hui</div>
+  <p style="font-size:0.9rem;color:var(--gris);margin-bottom:1rem;">
+    Un survol filmé par drone de la commune, à retrouver en vidéo sur la chaîne YouTube de Chaudon.
+  </p>
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/PSv6oWo08Ao"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+      title="Chaudon vue du ciel - drone">
+    </iframe>
   </div>
 
 </div>
