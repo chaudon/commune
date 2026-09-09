@@ -1,0 +1,91 @@
+/* ════════════════════════════════════════
+   _chaudon.css — Design system commun
+   Commune de Chaudon 28210
+   À inclure sur toutes les pages via :
+   <link rel="stylesheet" href="_chaudon.css">
+   ════════════════════════════════════════ */
+
+:root {
+  --bleu:       #1a2744;
+  --bleu-med:   #2a4b9e;
+  --or:         #c9a84c;
+  --or-clair:   #e8cc72;
+  --pierre:     #f5f0e8;
+  --creme:      #fdf9f0;
+  --gris:       #5a5a6a;
+  --texte:      #1c1c2e;
+  --blanc:      #ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--pierre);color:var(--texte);font-size:17px;line-height:1.6;}
+a{color:var(--bleu-med);text-decoration:none;}
+a:hover{color:var(--or);text-decoration:underline;}
+
+/* ── HEADER ── */
+.site-header{background:var(--bleu);color:#fff;position:relative;overflow:hidden;}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);}
+.header-inner{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;max-width:1280px;margin:0 auto;}
+.blason{width:56px;height:56px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+.blason-fallback{width:56px;height:56px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.header-text .kicker{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or-clair);margin-bottom:0.15rem;}
+.header-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.1;color:#fff;}
+.header-text h1 span{color:var(--or-clair);font-style:italic;}
+.header-info{margin-left:auto;text-align:right;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;flex-shrink:0;}
+.header-info strong{color:rgba(255,255,255,0.85);display:block;font-size:0.88rem;}
+#clock{color:var(--or-clair);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;}
+
+/* ── NAV ── */
+nav{background:var(--bleu);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.8rem 0.5rem;color:#fff;font-size:1.4rem;}
+.nav-menu{display:flex;list-style:none;flex-wrap:wrap;}
+.nav-menu > li{position:relative;}
+.nav-menu > li > a{display:block;padding:0.75rem 0.9rem;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.8);white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.nav-menu > li > a:hover,.nav-menu > li:hover > a{color:#fff;background:rgba(255,255,255,0.06);text-decoration:none;}
+.nav-menu > li:hover > a{color:var(--or-clair);}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:210px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.nav-menu > li:hover .dropdown{display:block;}
+.dropdown li{list-style:none;}
+.dropdown li a{display:block;padding:0.55rem 1rem;font-size:0.85rem;color:rgba(255,255,255,0.78);border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.12s,color 0.12s;}
+.dropdown li a:hover{background:rgba(255,255,255,0.07);color:#fff;text-decoration:none;}
+/* Sous-menu (ex: S.E.B.V / GEMAPI) — ancré sur SA ligne, pas sur tout le dropdown */
+.dropdown li.has-sub{position:relative;}
+.dropdown .subdrop{display:none;position:absolute;left:100%;top:0;background:var(--bleu);border:1px solid rgba(255,255,255,0.1);border-top:2px solid var(--or);min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.dropdown li:hover .subdrop{display:block;}
+.has-sub > a::after{content:' ›';}
+
+/* ── BANDEAU DATE ── */
+.date-band{background:rgba(26,39,68,0.06);border-bottom:1px solid rgba(201,168,76,0.25);padding:0.5rem 1.8rem;font-size:0.88rem;color:var(--gris);text-align:center;letter-spacing:0.03em;}
+#greeting{color:var(--bleu);font-weight:500;}
+
+/* ── FIL D'ARIANE ── */
+.breadcrumb{max-width:1280px;margin:0 auto;padding:0.7rem 1.4rem;font-size:0.82rem;color:var(--gris);}
+.breadcrumb a{color:var(--bleu-med);}
+.breadcrumb span{margin:0 0.4rem;color:var(--or);}
+
+/* ── LIBELLÉS / TITRES DE SECTION (communs) ── */
+.section-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:0.4rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--bleu);border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:0.35rem;margin-bottom:1rem;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--bleu);color:rgba(255,255,255,0.5);text-align:center;padding:1.8rem 1rem 1.4rem;font-size:0.82rem;letter-spacing:0.05em;margin-top:1.5rem;border-top:3px solid var(--or);}
+.site-footer strong{color:rgba(255,255,255,0.85);}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.2rem;margin-top:0.7rem;}
+.footer-links a{color:rgba(255,255,255,0.5);font-size:0.8rem;}
+.footer-links a:hover{color:var(--or-clair);text-decoration:none;}
+
+/* ── MOBILE (header / nav / footer, communs à toutes les pages) ── */
+@media (max-width: 640px){
+  .header-inner{padding:1rem 1rem;}
+  .header-info{display:none;}
+  .nav-inner{padding:0;}
+  .nav-menu{display:none;flex-direction:column;width:100%;background:var(--bleu);}
+  .nav-menu.open{display:flex;}
+  .nav-menu > li > a{padding:0.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .dropdown{position:static;border:none;box-shadow:none;border-top:none;background:rgba(0,0,0,0.15);}
+  .nav-menu > li:hover .dropdown,.nav-menu > li.open .dropdown{display:block;}
+  .dropdown .subdrop{position:static;border:none;box-shadow:none;background:rgba(0,0,0,0.1);}
+  .dropdown li:hover .subdrop,.dropdown li.open .subdrop{display:block;}
+  .hamburger{display:block;}
+  .date-band{display:none;}
+}
