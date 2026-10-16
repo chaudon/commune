@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Journal des mises à jour</title>
+<style>
+  :root { --bg:#f4f6f8; --card:#fff; --fg:#1d2733; --muted:#5b6b7b; --line:#dde3ea; --accent:#1f6feb; --danger:#c62828; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12181f; --card:#1b242e; --fg:#eef2f6; --muted:#9fb0c0; --line:#2c3947; --accent:#5b9bff; --danger:#ef6b6b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { margin:0 0 4px; font-size:1.6rem; }
+  .sub { color:var(--muted); margin:0 0 20px; font-size:.95rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  input, select, textarea, button { font:inherit; color:inherit; }
+  input, select, textarea { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  textarea { width:100%; min-height:100px; resize:vertical; }
+  input[type=search] { flex:1; min-width:180px; }
+  button { cursor:pointer; border:1px solid var(--line); background:var(--card); border-radius:8px; padding:8px 14px; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
+  button.link { border:none; background:none; color:var(--danger); padding:2px 6px; font-size:.9rem; }
+  .entry { border-left:4px solid var(--accent); }
+  .meta { display:flex; justify-content:space-between; align-items:center; gap:8px; color:var(--muted); font-size:.9rem; margin-bottom:6px; }
+  .tag { display:inline-block; background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:0 10px; margin-left:8px; font-size:.8rem; }
+  .txt { white-space:pre-wrap; word-wrap:break-word; }
+  .empty { color:var(--muted); text-align:center; padding:24px; }
+  .tools { display:flex; gap:8px; flex-wrap:wrap; }
+  .note { color:var(--muted); font-size:.85rem; margin-top:24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📝 Journal des mises à jour</h1>
+  <p class="sub">Page privée, non référencée. Notez ici tout ce qui a été modifié sur le site.</p>
+
+  <div class="card">
+    <div class="row">
+      <input type="date" id="date" aria-label="Date">
+      <select id="cat" aria-label="Catégorie">
+        <option>Contenu</option>
+        <option>Design</option>
+        <option>Technique</option>
+        <option>Correction</option>
+        <option>Autre</option>
+      </select>
+      <input type="text" id="page" placeholder="Page concernée (facultatif)" style="flex:1;min-width:160px" aria-label="Page concernée">
+    </div>
+    <textarea id="text" placeholder="Qu’est-ce qui a été modifié ?"></textarea>
+    <div class="row" style="margin:10px 0 0">
+      <button class="primary" id="add">Ajouter</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="search" id="q" placeholder="Rechercher…" aria-label="Rechercher">
+    <div class="tools">
+      <button id="exp">Exporter (JSON)</button>
+      <button id="txt">Exporter (texte)</button>
+      <button id="imp">Importer</button>
+      <input type="file" id="file" accept=".json" hidden>
+    </div>
+  </div>
+
+  <div id="list"></div>
+
+  <p class="note">Les notes sont enregistrées dans ce navigateur uniquement. Pensez à exporter régulièrement une sauvegarde.</p>
+</div>
+
+<script>
+(function () {
+  var KEY = 'journal-maj-site';
+  var items = [];
+  var $ = function (id) { return document.getElementById(id); };
+
+  function load() {
+    try { items = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { items = []; }
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) { alert('Enregistrement impossible dans ce navigateur.'); }
+  }
+  function today() { return new Date().toISOString().slice(0, 10); }
+  function fmt(d) { var p = d.split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : d; }
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  function render() {
+    var q = $('q').value.trim().toLowerCase();
+    var sorted = items.slice().sort(function (a, b) { return (b.date + b.id).localeCompare(a.date + a.id); });
+    var out = sorted.filter(function (e) {
+      return !q || (e.text + ' ' + e.cat + ' ' + (e.page || '')).toLowerCase().indexOf(q) !== -1;
+    }).map(function (e) {
+      return '<div class="card entry"><div class="meta"><span><strong>' + fmt(e.date) + '</strong>' +
+        '<span class="tag">' + esc(e.cat) + '</span>' +
+        (e.page ? '<span class="tag">' + esc(e.page) + '</span>' : '') + '</span>' +
+        '<button class="link" data-del="' + e.id + '">Supprimer</button></div>' +
+        '<div class="txt">' + esc(e.text) + '</div></div>';
+    }).join('');
+    $('list').innerHTML = out || '<div class="empty">Aucune note pour le moment.</div>';
+  }
+
+  $('add').onclick = function () {
+    var t = $('text').value.trim();
+    if (!t) { $('text').focus(); return; }
+    items.push({ id: String(Date.now()), date: $('date').value || today(), cat: $('cat').value, page: $('page').value.trim(), text: t });
+    save(); $('text').value = ''; $('page').value = ''; render();
+  };
+  $('list').onclick = function (ev) {
+    var id = ev.target.getAttribute('data-del');
+    if (id && confirm('Supprimer cette note ?')) {
+      items = items.filter(function (e) { return e.id !== id; });
+      save(); render();
+    }
+  };
+  $('q').oninput = render;
+
+  function download(name, content, type) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([content], { type: type }));
+    a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  }
+  $('exp').onclick = function () { download('journal-maj-' + today() + '.json', JSON.stringify(items, null, 2), 'application/json'); };
+  $('txt').onclick = function () {
+    var t = items.slice().sort(function (a, b) { return b.date.localeCompare(a.date); }).map(function (e) {
+      return fmt(e.date) + ' [' + e.cat + ']' + (e.page ? ' (' + e.page + ')' : '') + '\n' + e.text;
+    }).join('\n\n');
+    download('journal-maj-' + today() + '.txt', t, 'text/plain');
+  };
+  $('imp').onclick = function () { $('file').click(); };
+  $('file').onchange = function () {
+    var f = this.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var data = JSON.parse(r.result);
+        if (!Array.isArray(data)) throw 0;
+        var ids = {}; items.forEach(function (e) { ids[e.id] = 1; });
+        data.forEach(function (e) { if (e && e.text && e.date && !ids[e.id]) items.push(e); });
+        save(); render();
+      } catch (e) { alert('Fichier invalide.'); }
+    };
+    r.readAsText(f); this.value = '';
+  };
+
+  $('date').value = today();
+  load(); render();
+})();
+</script>
+</body>
+</html>
