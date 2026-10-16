@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commune de Chaudon – Page en construction</title>
+<style>
+  :root { --bg:#f4f6f8; --fg:#1d2733; --muted:#5b6b7b; --accent:#e8a317; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12181f; --fg:#eef2f6; --muted:#9fb0c0; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg); color: var(--fg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    text-align: center; padding: 24px;
+  }
+  main { max-width: 520px; }
+  .logo { display:block; max-width: 180px; max-height: 180px; width:auto; height:auto; margin: 0 auto 20px; }
+  .icon { font-size: 2.5rem; margin-bottom: 8px; }
+  h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); margin: 0 0 12px; }
+  p { color: var(--muted); font-size: 1.1rem; line-height: 1.6; margin: 0 0 24px; }
+  .bar {
+    height: 14px; border-radius: 7px; overflow: hidden; margin: 0 auto;
+    max-width: 320px; background: repeating-linear-gradient(
+      -45deg, var(--accent) 0 16px, #1d2733 16px 32px);
+    background-size: 46px 46px; animation: move 1.2s linear infinite;
+  }
+  @keyframes move { to { background-position: 46px 0; } }
+  @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }
+</style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="images/Blason%20Chaudon-1.jpg" alt="Blason de la commune de Chaudon">
+    <div class="icon">🚧</div>
+    <h1>Page en construction</h1>
+    <p>Nous travaillons actuellement sur cette page.<br>Merci de votre patience, revenez bientôt !</p>
+    <div class="bar" role="presentation"></div>
+  </main>
+</body>
+</html>
